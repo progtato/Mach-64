@@ -8,3 +8,7 @@ After race finishes the score gets added the leaderboard.
 The multiplayer is very glitchy and will probably brake the game after 1 race.
 
 Some of my friends enjoyed playing this game and I hope that you will also enjoy trying it out.
+<img width="1914" height="1076" alt="image" src="https://github.com/user-attachments/assets/cbe77c06-6280-4977-95b9-c6ae5f27146b" />
+
+
+<img width="1914" height="1076" alt="image" src="https://github.com/user-attachments/assets/f61c74f4-9f3b-434a-872a-3565eb153a39" />
