@@ -1,0 +1,186 @@
+[gd_scene load_steps=5 format=3 uid="uid://c5jgyyt4lumln"]
+
+[sub_resource type="GDScript" id="GDScript_y3mt2"]
+script/source = "extends Control
+
+var saves:save_manager
+
+func _ready():
+	$AnimationPlayer.play(\"RESET\")
+	$AnimationPlayer.play_backwards(\"Menu_popup\")
+	$Pause.visible = false
+	saves = save_manager.new()
+
+func _process(_delta):
+	check_if_esc()
+
+func pause() -> void:
+	get_tree().paused = true
+	$Pause.visible = true
+	$AnimationPlayer.play(\"Menu_popup\")
+	
+func unpause() -> void:
+	get_tree().paused = false
+	$AnimationPlayer.play_backwards(\"Menu_popup\")
+	$Pause.visible = false
+	
+func check_if_esc() -> void:
+	if Input.is_action_just_pressed(\"escape\") and not get_tree().paused:
+		pause()
+	elif Input.is_action_just_pressed(\"escape\") and get_tree().paused:
+		unpause()
+
+func _on_resume_pressed():
+	unpause()
+	
+func _on_quit_to_menu_pressed():
+	unpause()
+	get_tree().change_scene_to_file(\"res://Scenes/Main_Menu.tscn\")
+
+func _on_options_pressed():
+	$Settings.visible = true
+	$Pause.visible = false
+"
+
+[sub_resource type="Animation" id="Animation_i1hfg"]
+resource_name = "Menu_popup"
+length = 0.3
+
+[sub_resource type="Animation" id="Animation_svd6u"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ushnu"]
+_data = {
+&"Menu_popup": SubResource("Animation_i1hfg"),
+&"RESET": SubResource("Animation_svd6u")
+}
+
+[node name="Pause" type="Control"]
+process_mode = 3
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_y3mt2")
+
+[node name="Pause" type="VBoxContainer" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -102.5
+offset_top = -111.5
+offset_right = 102.5
+offset_bottom = 111.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 5
+
+[node name="Pause" type="Label" parent="Pause"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Pause"
+horizontal_alignment = 1
+
+[node name="Resume" type="Button" parent="Pause"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Resume"
+
+[node name="Quit to menu" type="Button" parent="Pause"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Quit to menu"
+
+[node name="Options" type="Button" parent="Pause"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Options"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ushnu")
+}
+
+[node name="Settings" type="VBoxContainer" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -72.5
+offset_top = -65.5
+offset_right = 72.5
+offset_bottom = 65.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sound" type="Label" parent="Settings"]
+layout_mode = 2
+text = "Audio"
+
+[node name="Audio" type="HSlider" parent="Settings"]
+layout_mode = 2
+
+[node name="Screen" type="Label" parent="Settings"]
+layout_mode = 2
+text = "Display"
+
+[node name="Window_type" type="OptionButton" parent="Settings"]
+layout_mode = 2
+item_count = 2
+popup/item_0/text = "Windowed"
+popup/item_0/id = 0
+popup/item_1/text = "Fullscreen"
+popup/item_1/id = 2
+
+[node name="Resolution" type="OptionButton" parent="Settings"]
+layout_mode = 2
+item_count = 3
+popup/item_0/text = "1920x1080"
+popup/item_0/id = 0
+popup/item_1/text = "1280x720"
+popup/item_1/id = 1
+popup/item_2/text = "640x480"
+popup/item_2/id = 2
+
+[node name="Fov label" type="Label" parent="Settings"]
+layout_mode = 2
+text = "Fov"
+
+[node name="Fov" type="HSlider" parent="Settings"]
+layout_mode = 2
+min_value = 30.0
+max_value = 150.0
+value = 30.0
+
+[node name="Reset" type="Label" parent="Settings"]
+layout_mode = 2
+text = "Reset Settings to default"
+
+[node name="Reset_setting" type="Button" parent="Settings"]
+layout_mode = 2
+text = "Reset"
+
+[node name="options_back" type="Button" parent="Settings"]
+layout_mode = 2
+text = "Go back"
+
+[connection signal="pressed" from="Pause/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Pause/Quit to menu" to="." method="_on_quit_to_menu_pressed"]
+[connection signal="pressed" from="Pause/Options" to="." method="_on_options_pressed"]
+[connection signal="value_changed" from="Settings/Audio" to="." method="_on_audio_value_changed"]
+[connection signal="item_selected" from="Settings/Window_type" to="." method="_on_window_type_item_selected"]
+[connection signal="item_selected" from="Settings/Resolution" to="." method="_on_resolution_item_selected"]
+[connection signal="value_changed" from="Settings/Fov" to="." method="_on_fov_value_changed"]
+[connection signal="pressed" from="Settings/Reset_setting" to="." method="_on_reset_setting_pressed"]
+[connection signal="pressed" from="Settings/options_back" to="." method="_on_options_back_pressed"]

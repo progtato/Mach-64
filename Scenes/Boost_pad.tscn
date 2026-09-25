@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://cjwcalxjykpwn"]
+
+[ext_resource type="Texture2D" uid="uid://b8u2rjhn4eqi6" path="res://Resourses/Textures/BoostPad.png" id="1_y3d4c"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k5oxy"]
+size = Vector3(1.98087, 0.209106, 0.995483)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_tcgqq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0rvtw"]
+albedo_texture = ExtResource("1_y3d4c")
+metallic = 0.5
+metallic_texture = SubResource("CanvasTexture_tcgqq")
+
+[sub_resource type="BoxMesh" id="BoxMesh_lk0yx"]
+size = Vector3(2, 0.2, 1)
+
+[node name="Boost_Pad" type="StaticBody3D"]
+
+[node name="Hitbox" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.551865, 0.00299072, 0.00653076)
+visibility_parent = NodePath("../MeshInstance3D")
+shape = SubResource("BoxShape3D_k5oxy")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.546171, 0, 0)
+material_override = SubResource("StandardMaterial3D_0rvtw")
+mesh = SubResource("BoxMesh_lk0yx")

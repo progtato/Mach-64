@@ -1,0 +1,299 @@
+[gd_scene load_steps=13 format=3 uid="uid://cr1c2atp751h0"]
+
+[ext_resource type="PackedScene" uid="uid://bdpgo6i15xovm" path="res://Scenes/Vechicle.tscn" id="1_3htb0"]
+[ext_resource type="Texture2D" uid="uid://bw7r7v0456i3j" path="res://Resourses/Textures/Floor.png" id="1_ub5ii"]
+[ext_resource type="PackedScene" uid="uid://cjwcalxjykpwn" path="res://Scenes/Boost_pad.tscn" id="3_yvsjh"]
+[ext_resource type="PackedScene" uid="uid://c5jgyyt4lumln" path="res://Scenes/In_Game_Menu.tscn" id="4_vmqvw"]
+[ext_resource type="ArrayMesh" uid="uid://bt71phmgai73e" path="res://Resourses/Models/vechicle.obj" id="5_4mjax"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jg5ij"]
+size = Vector3(100000, 0.5, 100000)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j1e3m"]
+albedo_texture = ExtResource("1_ub5ii")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_5eig5"]
+size = Vector2(1000, 1000)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bhlrc"]
+size = Vector3(2, 1.35752, 9.72644)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_mphls"]
+size = Vector2(2, 10)
+
+[sub_resource type="Skin" id="Skin_c15cy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_417qk"]
+albedo_texture = ExtResource("1_ub5ii")
+
+[node name="Node3D" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.394348, -0.18293, -0.66713)
+
+[node name="Floor" type="StaticBody3D" parent="."]
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("BoxShape3D_jg5ij")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+material_override = SubResource("StandardMaterial3D_j1e3m")
+mesh = SubResource("PlaneMesh_5eig5")
+
+[node name="One way wall" type="StaticBody3D" parent="."]
+transform = Transform3D(-0.0110651, -0.999939, 0, 0.999939, -0.0110651, 0, 0, 0, 1, 0, 0.964871, 0)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="One way wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00301933, -0.238988, 0.00476193)
+shape = SubResource("BoxShape3D_bhlrc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="One way wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.445701, 0)
+mesh = SubResource("PlaneMesh_mphls")
+skin = SubResource("Skin_c15cy")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.506922, -0.858903, -0.0729091, 0.861992, 0.505105, 0.0428765, 0, -0.0845821, 0.996417, -1.326, 31.0884, -0.378025)
+
+[node name="Ramp" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0238082, 8.8454)
+metadata/_edit_group_ = true
+
+[node name="One way wall" type="StaticBody3D" parent="Ramp"]
+transform = Transform3D(0.999915, -0.0130721, 0, 0.0130721, 0.999915, 0, 0, 0, 1, 1.72951, 0.329392, 0.238039)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ramp/One way wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00236207, 0.349172, 0.00476193)
+shape = SubResource("BoxShape3D_bhlrc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ramp/One way wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.445701, 0)
+mesh = SubResource("PlaneMesh_mphls")
+skin = SubResource("Skin_c15cy")
+
+[node name="One way wall2" type="StaticBody3D" parent="Ramp"]
+transform = Transform3D(0.906308, -0.422618, 0, 0.422618, 0.906308, 0, 0, 0, 1, 0, -0.018922, 0.238286)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ramp/One way wall2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00236207, 0.349172, 0.00476193)
+shape = SubResource("BoxShape3D_bhlrc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ramp/One way wall2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.445701, 0)
+mesh = SubResource("PlaneMesh_mphls")
+skin = SubResource("Skin_c15cy")
+
+[node name="One way wall3" type="StaticBody3D" parent="Ramp"]
+transform = Transform3D(-0.938526, 0.343904, 0.0299938, 0.344779, 0.938146, 0.0317721, -0.017212, 0.0401602, -0.999045, 3.41506, 0.0751945, 0.207776)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ramp/One way wall3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00236207, 0.349172, 0.00476193)
+shape = SubResource("BoxShape3D_bhlrc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ramp/One way wall3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.445701, 0)
+mesh = SubResource("PlaneMesh_mphls")
+skin = SubResource("Skin_c15cy")
+
+[node name="Wall" type="Node" parent="."]
+
+[node name="One way wall" type="StaticBody3D" parent="Wall"]
+transform = Transform3D(-0.0110651, -0.999939, 0, 0.999939, -0.0110651, 0, 0, 0, 1, 0, 0.964871, 2.01063)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall/One way wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00236207, 0.349172, 0.00476193)
+shape = SubResource("BoxShape3D_bhlrc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall/One way wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.445701, 0)
+mesh = SubResource("PlaneMesh_mphls")
+skin = SubResource("Skin_c15cy")
+
+[node name="One way wall2" type="StaticBody3D" parent="Wall"]
+transform = Transform3D(-0.0110651, -0.999939, 0, 0.999939, -0.0110651, 0, 0, 0, 1, 0, 0.964871, 0)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall/One way wall2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00236207, 0.349172, 0.00476193)
+shape = SubResource("BoxShape3D_bhlrc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall/One way wall2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.445701, 0)
+mesh = SubResource("PlaneMesh_mphls")
+skin = SubResource("Skin_c15cy")
+
+[node name="Vechicle" parent="." instance=ExtResource("1_3htb0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.1745, 90.7505, -5.65949)
+
+[node name="One way wall2" type="StaticBody3D" parent="."]
+transform = Transform3D(8.4817, -5.29666, 0.0780154, 5.29682, 8.48196, 3.94644e-09, -0.0661724, 0.0413234, 9.9997, 0, 0.162356, -8.07006)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="One way wall2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00301933, -0.238988, 0.00476193)
+shape = SubResource("BoxShape3D_bhlrc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="One way wall2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.445701, 0)
+mesh = SubResource("PlaneMesh_mphls")
+skin = SubResource("Skin_c15cy")
+
+[node name="One way wall" type="StaticBody3D" parent="One way wall2"]
+transform = Transform3D(0.975715, -0.219002, -0.00438889, 0.218989, 0.975722, -0.00334424, 0.00501474, 0.0023019, 0.999985, 2.05122, 0.140617, 0.00514448)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="One way wall2/One way wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00301933, -0.238988, 0.00476193)
+shape = SubResource("BoxShape3D_bhlrc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="One way wall2/One way wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.445701, 0)
+mesh = SubResource("PlaneMesh_mphls")
+skin = SubResource("Skin_c15cy")
+
+[node name="One way wall" type="StaticBody3D" parent="One way wall2/One way wall"]
+transform = Transform3D(0.873761, -0.486305, -0.00712326, 0.486336, 0.873765, 0.00360137, 0.00447269, -0.00661104, 0.999968, 1.83278, 0.43497, 0.00510836)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="One way wall2/One way wall/One way wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00301933, -0.238988, 0.00476193)
+shape = SubResource("BoxShape3D_bhlrc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="One way wall2/One way wall/One way wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.445701, 0)
+mesh = SubResource("PlaneMesh_mphls")
+skin = SubResource("Skin_c15cy")
+
+[node name="One way wall2" type="StaticBody3D" parent="One way wall2"]
+transform = Transform3D(0.537293, -0.843389, -0.00333482, 0.843385, 0.537302, -0.00294511, 0.00427568, -0.00123015, 0.99999, 5.09022, 2.53768, 0.0271847)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="One way wall2/One way wall2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00301933, -0.238988, 0.00476193)
+shape = SubResource("BoxShape3D_bhlrc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="One way wall2/One way wall2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.445701, 0)
+mesh = SubResource("PlaneMesh_mphls")
+skin = SubResource("Skin_c15cy")
+
+[node name="One way wall3" type="StaticBody3D" parent="One way wall2"]
+transform = Transform3D(-0.264236, -0.964458, 0.000831536, 0.964457, -0.264235, 0.00181287, -0.00152872, 0.00128101, 0.999998, 5.82736, 6.35713, 0.0162789)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="One way wall2/One way wall3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00301933, -0.238988, 0.00476193)
+shape = SubResource("BoxShape3D_bhlrc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="One way wall2/One way wall3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.445701, 0)
+mesh = SubResource("PlaneMesh_mphls")
+skin = SubResource("Skin_c15cy")
+
+[node name="One way wall4" type="StaticBody3D" parent="One way wall2"]
+transform = Transform3D(0.190854, -0.981618, -0.000969549, 0.981618, 0.190855, -0.00124983, 0.0014119, -0.000713191, 0.999999, 5.8717, 4.38132, 0.0247373)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="One way wall2/One way wall4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00301933, -0.238988, 0.00476193)
+shape = SubResource("BoxShape3D_bhlrc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="One way wall2/One way wall4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.445701, 0)
+mesh = SubResource("PlaneMesh_mphls")
+skin = SubResource("Skin_c15cy")
+
+[node name="One way wall" type="StaticBody3D" parent="One way wall2/One way wall4"]
+transform = Transform3D(0.357691, -0.933837, -0.00212313, 0.933838, 0.357686, 0.00200874, -0.00111641, -0.00270116, 0.999994, 4.75193, 3.07668, -0.0338612)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="One way wall2/One way wall4/One way wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00301933, -0.238988, 0.00476193)
+shape = SubResource("BoxShape3D_bhlrc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="One way wall2/One way wall4/One way wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.445701, 0)
+mesh = SubResource("PlaneMesh_mphls")
+skin = SubResource("Skin_c15cy")
+
+[node name="One way wall" type="StaticBody3D" parent="One way wall2/One way wall4/One way wall"]
+transform = Transform3D(0.862454, 0.505956, 0.0135528, -0.505991, 0.862539, -0.000892509, -0.0121414, -0.00608784, 0.999908, -1.98635, 0.572137, 0.0112797)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="One way wall2/One way wall4/One way wall/One way wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00301933, -0.238988, 0.00476193)
+shape = SubResource("BoxShape3D_bhlrc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="One way wall2/One way wall4/One way wall/One way wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.445701, 0)
+mesh = SubResource("PlaneMesh_mphls")
+skin = SubResource("Skin_c15cy")
+
+[node name="Boost_Pad" parent="." instance=ExtResource("3_yvsjh")]
+transform = Transform3D(2.86607, -1.32449, -9.48849, 4.195, 9.07755, 0, 8.61322, -3.98042, 3.15732, -53.2348, -0.524942, 12.9492)
+
+[node name="One way wall4" type="StaticBody3D" parent="."]
+transform = Transform3D(4.37114e-07, 10, -8.74228e-07, 10, -4.37114e-07, 0, -3.82137e-14, -8.74227e-07, -10, -207.132, 7.52642, 145.596)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="One way wall4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00301933, -0.238988, 0.00476193)
+shape = SubResource("BoxShape3D_bhlrc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="One way wall4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.445701, 0)
+mesh = SubResource("PlaneMesh_mphls")
+skin = SubResource("Skin_c15cy")
+skeleton = NodePath("../../One way wall4")
+
+[node name="One way wall" type="StaticBody3D" parent="One way wall4"]
+transform = Transform3D(0.873761, -0.486305, -0.00712326, 0.486336, 0.873765, 0.00360137, 0.00447269, -0.00661104, 0.999968, 1.83278, 0.43497, 0.00510836)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="One way wall4/One way wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00301933, -0.238988, 0.00476193)
+shape = SubResource("BoxShape3D_bhlrc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="One way wall4/One way wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.445701, 0)
+mesh = SubResource("PlaneMesh_mphls")
+skin = SubResource("Skin_c15cy")
+
+[node name="One way wall3" type="StaticBody3D" parent="."]
+transform = Transform3D(-4.37114e-07, -10, 0, 10, -4.37114e-07, 0, 0, 0, 10, -162.978, 12.0983, 148.195)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="One way wall3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.181077, -0.238991, -0.177157)
+shape = SubResource("BoxShape3D_bhlrc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="One way wall3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.194244, 0.445702, 0)
+mesh = SubResource("PlaneMesh_mphls")
+skin = SubResource("Skin_c15cy")
+
+[node name="One way wall" type="StaticBody3D" parent="One way wall3"]
+transform = Transform3D(1, 0, 3.55271e-15, 5.32907e-15, 1, 8.9407e-08, -1.77636e-15, 0, 1, 1.83278, -0.153072, -0.166961)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="One way wall3/One way wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00301933, -0.238988, 0.00476193)
+shape = SubResource("BoxShape3D_bhlrc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="One way wall3/One way wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.445701, 0)
+mesh = SubResource("PlaneMesh_mphls")
+skin = SubResource("Skin_c15cy")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Pause" parent="CanvasLayer" instance=ExtResource("4_vmqvw")]
+
+[node name="Vechicle2" type="MeshInstance3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -209.316, 14.8166, -67.6716)
+material_override = SubResource("StandardMaterial3D_417qk")
+mesh = ExtResource("5_4mjax")

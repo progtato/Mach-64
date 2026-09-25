@@ -1,0 +1,212 @@
+[gd_scene load_steps=3 format=3 uid="uid://0k7xjl6l3wjn"]
+
+[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_jfcld"]
+[ext_resource type="Texture2D" uid="uid://cw2y0gsvua337" path="res://Resourses/Textures/icon.svg" id="2_djgj8"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jfcld")
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(655, 743)
+scale = Vector2(7.67188, 0.984375)
+texture = ExtResource("2_djgj8")
+
+[node name="Menu" type="VBoxContainer" parent="."]
+top_level = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -89.5
+offset_top = -104.5
+offset_right = 89.5
+offset_bottom = 104.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 5
+alignment = 1
+
+[node name="Toptext" type="Label" parent="Menu"]
+layout_mode = 2
+
+[node name="Log in" type="Button" parent="Menu"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Log in"
+icon_alignment = 1
+
+[node name="Log out" type="Button" parent="Menu"]
+visible = false
+layout_mode = 2
+text = "Log out"
+
+[node name="Delete account" type="Button" parent="Menu"]
+layout_mode = 2
+text = "Delete account"
+
+[node name="Sign up" type="Button" parent="Menu"]
+layout_mode = 2
+text = "Sign up"
+
+[node name="Multplayer" type="Button" parent="Menu"]
+visible = false
+layout_mode = 2
+text = "Multiplayer"
+
+[node name="Sigleplayer" type="Button" parent="Menu"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+text = "Singleplayer"
+
+[node name="Test_Track" type="Button" parent="Menu"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Test Track"
+
+[node name="Options" type="Button" parent="Menu"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Options"
+
+[node name="Exit" type="Button" parent="Menu"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Exit"
+
+[node name="Log" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -108.5
+offset_top = -118.0
+offset_right = 108.5
+offset_bottom = 118.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 5
+
+[node name="Label" type="Label" parent="Log"]
+layout_mode = 2
+text = "Name"
+
+[node name="Name" type="LineEdit" parent="Log"]
+layout_mode = 2
+size_flags_vertical = 3
+clear_button_enabled = true
+caret_blink = true
+
+[node name="Label2" type="Label" parent="Log"]
+layout_mode = 2
+text = "Password"
+
+[node name="Password" type="LineEdit" parent="Log"]
+layout_mode = 2
+size_flags_vertical = 3
+clear_button_enabled = true
+caret_blink = true
+secret = true
+
+[node name="Label3" type="Label" parent="Log"]
+layout_mode = 2
+text = "Repeat Password"
+
+[node name="Repeat" type="LineEdit" parent="Log"]
+layout_mode = 2
+size_flags_vertical = 3
+clear_button_enabled = true
+caret_blink = true
+secret = true
+
+[node name="Error" type="Label" parent="Log"]
+layout_mode = 2
+
+[node name="Log" type="Button" parent="Log"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+text = "Log in"
+
+[node name="Sign" type="Button" parent="Log"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+text = "sign up"
+
+[node name="Back" type="Button" parent="Log"]
+layout_mode = 2
+text = "Back"
+
+[node name="Delete account" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -83.5
+offset_top = -62.0
+offset_right = 83.5
+offset_bottom = 62.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="delete_text" type="Label" parent="Delete account"]
+layout_mode = 2
+
+[node name="Pass text" type="Label" parent="Delete account"]
+layout_mode = 2
+text = "Password"
+
+[node name="delete_password" type="LineEdit" parent="Delete account"]
+layout_mode = 2
+clear_button_enabled = true
+caret_blink = true
+secret = true
+
+[node name="delete" type="Button" parent="Delete account"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Delete account"
+
+[node name="back_delete" type="Button" parent="Delete account"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Go back"
+
+[node name="Level select" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="pressed" from="Menu/Log in" to="." method="_on_log_in_pressed"]
+[connection signal="pressed" from="Menu/Log out" to="." method="_on_log_out_pressed"]
+[connection signal="pressed" from="Menu/Delete account" to="." method="_on_delete_account_pressed"]
+[connection signal="pressed" from="Menu/Sign up" to="." method="_on_sign_up_pressed"]
+[connection signal="pressed" from="Menu/Sigleplayer" to="." method="_on_sigleplayer_pressed"]
+[connection signal="pressed" from="Menu/Test_Track" to="." method="_on_test_track_pressed"]
+[connection signal="pressed" from="Menu/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Menu/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Log/Log" to="." method="_on_log_pressed"]
+[connection signal="pressed" from="Log/Sign" to="." method="_on_sign_pressed"]
+[connection signal="pressed" from="Log/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Delete account/delete" to="." method="_on_delete_pressed"]
+[connection signal="pressed" from="Delete account/back_delete" to="." method="_on_back_delete_pressed"]

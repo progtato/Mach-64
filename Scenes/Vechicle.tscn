@@ -1,0 +1,181 @@
+[gd_scene load_steps=10 format=3 uid="uid://bdpgo6i15xovm"]
+
+[ext_resource type="Script" uid="uid://bjjexh856dihs" path="res://Scripts/Main_Vechicle_Body.gd" id="1_kouea"]
+[ext_resource type="ArrayMesh" uid="uid://bt71phmgai73e" path="res://Resourses/Models/vechicle.obj" id="2_lhrmm"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_17fi4"]
+radius = 0.777661
+height = 5.6328
+
+[sub_resource type="GDScript" id="GDScript_rkprp"]
+script/source = "extends RichTextLabel
+"
+
+[sub_resource type="Animation" id="Animation_0exmn"]
+resource_name = "Appear"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.368627), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_17fi4"]
+resource_name = "Fade"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.368627)]
+}
+
+[sub_resource type="Animation" id="Animation_o7jvr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o7jvr"]
+_data = {
+&"Appear": SubResource("Animation_0exmn"),
+&"Fade": SubResource("Animation_17fi4"),
+&"RESET": SubResource("Animation_o7jvr")
+}
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_17fi4"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:rotation")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+
+[node name="Main" type="CharacterBody3D"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_kouea")
+metadata/_edit_group_ = true
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.67079, -1.52309e-08, 0.0264893)
+shape = SubResource("CapsuleShape3D_17fi4")
+
+[node name="Shape" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 0, 0, 0)
+mesh = ExtResource("2_lhrmm")
+skeleton = NodePath("")
+
+[node name="Ray" type="RayCast3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -0.4, 0)
+target_position = Vector3(0, -13, 0)
+
+[node name="Label1" type="RichTextLabel" parent="."]
+anchors_preset = -1
+anchor_left = 0.819
+anchor_right = 0.819
+offset_left = -212.488
+offset_top = 15.0
+offset_right = 213.512
+offset_bottom = 524.0
+script = SubResource("GDScript_rkprp")
+
+[node name="Pivot" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="SpringArm3D" type="SpringArm3D" parent="Pivot"]
+transform = Transform3D(1, -3.83934e-09, 1.68939e-10, 3.83934e-09, 0.996135, -0.0878338, 1.68939e-10, 0.0878338, 0.996135, 7.04405e-07, 5.72209, -16.115)
+spring_length = 2.0
+
+[node name="Camera3D" type="Camera3D" parent="Pivot/SpringArm3D"]
+transform = Transform3D(-1, -7.54952e-15, -8.74228e-08, -1.42109e-14, 1, 6.70552e-08, 8.74228e-08, 5.96046e-08, -1, -0.02, -0.489, 0)
+fov = 106.7
+size = 0.1
+far = 2000.0
+
+[node name="StatBar" type="ColorRect" parent="."]
+offset_left = 22.0
+offset_top = 12.0
+offset_right = 262.0
+offset_bottom = 47.0
+color = Color(0, 0, 0, 1)
+
+[node name="Speed" type="Label" parent="StatBar"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 5.0
+offset_right = 93.0
+offset_bottom = 32.0
+
+[node name="Lap" type="Label" parent="StatBar"]
+layout_mode = 0
+offset_left = 158.0
+offset_top = 5.0
+offset_right = 228.0
+offset_bottom = 28.0
+text = "Lap: 0/1"
+
+[node name="Energy" type="ProgressBar" parent="."]
+offset_left = 26.0
+offset_top = 66.0
+offset_right = 215.0
+offset_bottom = 93.0
+value = 20.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="Energy"]
+layout_mode = 0
+offset_left = 69.0
+offset_top = 1.0
+offset_right = 124.0
+offset_bottom = 24.0
+text = "Energy"
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="Controls" type="Label" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -233.0
+offset_right = 293.0
+grow_vertical = 0
+text = "CONTROLS
+Accelerate = W
+Turn Right = D
+Turn Left = A
+Boost = SPACEBAR
+Brake = S
+Strafe Left = LEFT ARROW
+Strafe Right = RIGHT ARROW
+Pause = ESCAPE"
+
+[node name="ControlAn" type="AnimationPlayer" parent="Controls"]
+libraries = {
+&"": SubResource("AnimationLibrary_o7jvr")
+}
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_17fi4")

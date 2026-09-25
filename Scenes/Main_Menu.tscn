@@ -1,0 +1,810 @@
+[gd_scene load_steps=7 format=3 uid="uid://0k7xjl6l3wjn"]
+
+[ext_resource type="Script" uid="uid://dhgflc5lhxhv0" path="res://Scripts/main_menu.gd" id="1_jfcld"]
+[ext_resource type="Texture2D" uid="uid://cw2y0gsvua337" path="res://Resourses/Textures/icon.svg" id="2_djgj8"]
+
+[sub_resource type="Animation" id="Animation_rmbjf"]
+resource_name = "Menu_popup"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Menu:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Log:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Delete account:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Level select:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Settings:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Leaderboard:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Pause:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_b7rmo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Menu:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Log:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Delete account:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Level select:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Settings:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Leaderboard:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Pause:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_00u4r"]
+_data = {
+&"Menu_popup": SubResource("Animation_rmbjf"),
+&"RESET": SubResource("Animation_b7rmo")
+}
+
+[sub_resource type="AudioStreamWAV" id="AudioStreamWAV_rmbjf"]
+format = 1
+
+[node name="Menumanager" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.0
+offset_top = 28.0
+offset_right = -22.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jfcld")
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(655, 743)
+scale = Vector2(7.67188, 0.984375)
+texture = ExtResource("2_djgj8")
+
+[node name="Menu" type="VBoxContainer" parent="."]
+top_level = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -101.5
+offset_top = -126.0
+offset_right = 101.5
+offset_bottom = 126.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 5
+alignment = 1
+
+[node name="Toptext" type="Label" parent="Menu"]
+layout_mode = 2
+
+[node name="Log in" type="Button" parent="Menu" groups=["Buttons"]]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Log in"
+icon_alignment = 1
+
+[node name="Log out" type="Button" parent="Menu" groups=["Buttons"]]
+visible = false
+layout_mode = 2
+text = "Log out"
+
+[node name="Delete account" type="Button" parent="Menu" groups=["Buttons"]]
+layout_mode = 2
+text = "Delete account"
+
+[node name="Sign up" type="Button" parent="Menu" groups=["Buttons"]]
+layout_mode = 2
+text = "Sign up"
+
+[node name="Multplayer" type="Button" parent="Menu" groups=["Buttons"]]
+visible = false
+layout_mode = 2
+text = "Multiplayer"
+
+[node name="Sigleplayer" type="Button" parent="Menu" groups=["Buttons"]]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+text = "Singleplayer"
+
+[node name="Leaderboard" type="Button" parent="Menu" groups=["Buttons"]]
+layout_mode = 2
+text = "Leaderboard"
+
+[node name="Test_Track" type="Button" parent="Menu" groups=["Buttons"]]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+text = "Test Track"
+
+[node name="Options" type="Button" parent="Menu" groups=["Buttons"]]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Options"
+
+[node name="Exit" type="Button" parent="Menu" groups=["Buttons"]]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Exit"
+
+[node name="Log" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -108.5
+offset_top = -118.0
+offset_right = 108.5
+offset_bottom = 118.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 5
+
+[node name="Label" type="Label" parent="Log"]
+layout_mode = 2
+text = "Name"
+
+[node name="Name" type="LineEdit" parent="Log"]
+layout_mode = 2
+size_flags_vertical = 3
+clear_button_enabled = true
+caret_blink = true
+
+[node name="Label2" type="Label" parent="Log"]
+layout_mode = 2
+text = "Password"
+
+[node name="Password" type="LineEdit" parent="Log"]
+layout_mode = 2
+size_flags_vertical = 3
+clear_button_enabled = true
+caret_blink = true
+secret = true
+
+[node name="Label3" type="Label" parent="Log"]
+layout_mode = 2
+text = "Repeat Password"
+
+[node name="Repeat" type="LineEdit" parent="Log"]
+layout_mode = 2
+size_flags_vertical = 3
+clear_button_enabled = true
+caret_blink = true
+secret = true
+
+[node name="Error" type="Label" parent="Log"]
+layout_mode = 2
+
+[node name="Log" type="Button" parent="Log" groups=["Buttons"]]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+text = "Log in"
+
+[node name="Sign" type="Button" parent="Log" groups=["Buttons"]]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+text = "sign up"
+
+[node name="Back" type="Button" parent="Log" groups=["Buttons"]]
+layout_mode = 2
+text = "Back"
+
+[node name="Delete account" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -83.5
+offset_top = -62.0
+offset_right = 83.5
+offset_bottom = 62.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="delete_text" type="Label" parent="Delete account"]
+layout_mode = 2
+
+[node name="Pass text" type="Label" parent="Delete account"]
+layout_mode = 2
+text = "Password"
+
+[node name="delete_password" type="LineEdit" parent="Delete account"]
+layout_mode = 2
+clear_button_enabled = true
+caret_blink = true
+secret = true
+
+[node name="delete" type="Button" parent="Delete account" groups=["Buttons"]]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Delete account"
+
+[node name="back_delete" type="Button" parent="Delete account" groups=["Buttons"]]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Go back"
+
+[node name="Level select" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -117.0
+offset_top = -26.0
+offset_right = 127.0
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LevelTitle" type="Label" parent="Level select"]
+layout_mode = 2
+anchor_left = 0.5
+anchor_top = 2.264
+anchor_right = 0.5
+anchor_bottom = 2.264
+offset_left = -401.0
+offset_top = -408.492
+offset_right = -231.0
+offset_bottom = -366.492
+text = "Choose your level"
+
+[node name="Label" type="Label" parent="Level select"]
+layout_mode = 0
+offset_left = 83.0
+offset_top = -213.5
+offset_right = 246.0
+offset_bottom = -190.5
+text = "Choose your vechicle"
+
+[node name="Level  name" type="Label" parent="Level select"]
+layout_mode = 2
+offset_left = -230.0
+offset_top = -214.0
+offset_right = -171.0
+offset_bottom = -191.0
+text = "Name"
+
+[node name="Laps" type="Label" parent="Level select"]
+layout_mode = 2
+offset_left = -331.0
+offset_top = 31.0
+offset_right = -97.0
+offset_bottom = 54.0
+text = "Choose how many laps"
+
+[node name="LapBox" type="OptionButton" parent="Level select"]
+layout_mode = 2
+offset_left = -332.0
+offset_top = 76.0
+offset_right = -98.0
+offset_bottom = 107.0
+selected = 0
+item_count = 3
+popup/item_0/text = "3 laps"
+popup/item_0/id = 0
+popup/item_1/text = "5 laps"
+popup/item_1/id = 1
+popup/item_2/text = "7 laps"
+popup/item_2/id = 2
+
+[node name="VechBox" type="OptionButton" parent="Level select"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = -73.0
+offset_right = 279.0
+offset_bottom = -44.0
+
+[node name="Levepic" type="TextureRect" parent="Level select"]
+layout_mode = 0
+offset_left = -300.0
+offset_top = -172.0
+offset_right = -82.0
+offset_bottom = -99.0
+
+[node name="Vechpic" type="TextureRect" parent="Level select"]
+layout_mode = 0
+offset_left = 68.0
+offset_top = -171.5
+offset_right = 258.0
+offset_bottom = -78.5
+
+[node name="Up" type="Button" parent="Level select" groups=["Buttons"]]
+layout_mode = 2
+offset_left = -340.0
+offset_top = -83.0
+offset_right = -101.0
+offset_bottom = -52.0
+text = "UP"
+
+[node name="Back_select" type="Button" parent="Level select" groups=["Buttons"]]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 177.0
+offset_right = 167.0
+offset_bottom = 217.0
+text = "Go back"
+
+[node name="Down" type="Button" parent="Level select" groups=["Buttons"]]
+layout_mode = 2
+offset_left = -338.0
+offset_top = -29.0
+offset_right = -99.0
+offset_bottom = 2.0
+text = "Down"
+
+[node name="Sart race" type="Button" parent="Level select" groups=["Buttons"]]
+layout_mode = 0
+offset_left = -146.0
+offset_top = 175.0
+offset_right = -19.0
+offset_bottom = 219.0
+text = "Race"
+
+[node name="Stats" type="Label" parent="Level select"]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 4.0
+offset_right = 274.0
+offset_bottom = 90.0
+text = "Hp:
+Energy:
+Mass:"
+
+[node name="Settings" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -72.5
+offset_top = -65.5
+offset_right = 72.5
+offset_bottom = 65.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sound" type="Label" parent="Settings"]
+layout_mode = 2
+text = "Audio"
+
+[node name="Audio" type="HSlider" parent="Settings"]
+layout_mode = 2
+max_value = 50.0
+
+[node name="Screen" type="Label" parent="Settings"]
+layout_mode = 2
+text = "Display"
+
+[node name="Window_type" type="OptionButton" parent="Settings"]
+layout_mode = 2
+item_count = 2
+popup/item_0/text = "Windowed"
+popup/item_0/id = 0
+popup/item_1/text = "Fullscreen"
+popup/item_1/id = 2
+
+[node name="Resolution" type="OptionButton" parent="Settings"]
+layout_mode = 2
+item_count = 3
+popup/item_0/text = "1920x1080"
+popup/item_0/id = 0
+popup/item_1/text = "1280x720"
+popup/item_1/id = 1
+popup/item_2/text = "640x480"
+popup/item_2/id = 2
+
+[node name="Fov label" type="Label" parent="Settings"]
+layout_mode = 2
+text = "Fov"
+
+[node name="Fov" type="HSlider" parent="Settings"]
+layout_mode = 2
+min_value = 30.0
+max_value = 150.0
+value = 30.0
+
+[node name="Reset" type="Label" parent="Settings"]
+layout_mode = 2
+text = "Reset Settings to default"
+
+[node name="Reset_setting" type="Button" parent="Settings" groups=["Buttons"]]
+layout_mode = 2
+text = "Reset"
+
+[node name="options_back" type="Button" parent="Settings" groups=["Buttons"]]
+layout_mode = 2
+text = "Go back"
+
+[node name="Leaderboard" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -177.5
+offset_top = -50.5
+offset_right = 177.5
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Name" type="Label" parent="Leaderboard"]
+layout_mode = 2
+text = "Leaderboard"
+
+[node name="Sort" type="Label" parent="Leaderboard"]
+layout_mode = 2
+text = "Track"
+
+[node name="TrackOption" type="OptionButton" parent="Leaderboard"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Leaderboard"]
+layout_mode = 2
+text = "Players"
+
+[node name="PlayerOption" type="OptionButton" parent="Leaderboard"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="Leaderboard"]
+layout_mode = 2
+text = "Order by"
+
+[node name="TimeOption" type="OptionButton" parent="Leaderboard"]
+layout_mode = 2
+selected = 0
+item_count = 2
+popup/item_0/text = "Race Time"
+popup/item_0/id = 0
+popup/item_1/text = "Best Laptime"
+popup/item_1/id = 1
+
+[node name="Scores" type="HBoxContainer" parent="Leaderboard"]
+layout_mode = 2
+
+[node name="Player" type="Label" parent="Leaderboard/Scores"]
+layout_mode = 2
+text = "Player 
+"
+
+[node name="Track" type="Label" parent="Leaderboard/Scores"]
+layout_mode = 2
+text = "Track
+"
+
+[node name="Racetime" type="Label" parent="Leaderboard/Scores"]
+layout_mode = 2
+text = "Race time
+"
+
+[node name="Laptime" type="Label" parent="Leaderboard/Scores"]
+layout_mode = 2
+text = "Best lap time
+"
+
+[node name="Vechicle" type="Label" parent="Leaderboard/Scores"]
+layout_mode = 2
+text = "Vechicle
+"
+
+[node name="ExitScore" type="Button" parent="Leaderboard" groups=["Buttons"]]
+layout_mode = 2
+text = "Exit"
+
+[node name="Pause" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -102.5
+offset_top = -111.5
+offset_right = 102.5
+offset_bottom = 111.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 5
+
+[node name="Pause" type="Label" parent="Pause"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Pause"
+horizontal_alignment = 1
+
+[node name="Resume" type="Button" parent="Pause" groups=["Buttons"]]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Resume"
+
+[node name="Options" type="Button" parent="Pause" groups=["Buttons"]]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Options"
+
+[node name="Quit to menu" type="Button" parent="Pause" groups=["Buttons"]]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Quit to menu"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_00u4r")
+}
+
+[node name="Mutliplayer" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = -20.0
+offset_right = 136.0
+offset_bottom = 108.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Ip" type="Label" parent="Mutliplayer"]
+layout_mode = 2
+text = "Enter Host Ip if joining"
+
+[node name="VBoxContainer" type="HBoxContainer" parent="Mutliplayer"]
+layout_mode = 2
+
+[node name="Host" type="Button" parent="Mutliplayer/VBoxContainer" groups=["Buttons"]]
+layout_mode = 2
+text = "Host         "
+
+[node name="Join" type="Button" parent="Mutliplayer/VBoxContainer" groups=["Buttons"]]
+layout_mode = 2
+text = "Join          "
+
+[node name="ExitMultiplayer" type="Button" parent="Mutliplayer/VBoxContainer" groups=["Buttons"]]
+layout_mode = 2
+text = "Exit"
+
+[node name="EnterIp" type="LineEdit" parent="Mutliplayer"]
+layout_mode = 2
+
+[node name="Error" type="Label" parent="Mutliplayer"]
+layout_mode = 2
+text = "Enter Host IP to join"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamWAV_rmbjf")
+volume_db = -70.0
+autoplay = true
+
+[connection signal="pressed" from="Menu/Log in" to="." method="_on_log_in_pressed"]
+[connection signal="pressed" from="Menu/Log out" to="." method="_on_log_out_pressed"]
+[connection signal="pressed" from="Menu/Delete account" to="." method="_on_delete_account_pressed"]
+[connection signal="pressed" from="Menu/Sign up" to="." method="_on_sign_up_pressed"]
+[connection signal="pressed" from="Menu/Multplayer" to="." method="_on_multplayer_pressed"]
+[connection signal="pressed" from="Menu/Sigleplayer" to="." method="_on_sigleplayer_pressed"]
+[connection signal="pressed" from="Menu/Leaderboard" to="." method="_on_leaderboard_pressed"]
+[connection signal="pressed" from="Menu/Test_Track" to="." method="_on_test_track_pressed"]
+[connection signal="pressed" from="Menu/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Menu/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Log/Log" to="." method="_on_log_pressed"]
+[connection signal="pressed" from="Log/Sign" to="." method="_on_sign_pressed"]
+[connection signal="pressed" from="Log/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Delete account/delete" to="." method="_on_delete_pressed"]
+[connection signal="pressed" from="Delete account/back_delete" to="." method="_on_back_delete_pressed"]
+[connection signal="item_selected" from="Level select/LapBox" to="." method="_on_lap_box_item_selected"]
+[connection signal="item_selected" from="Level select/VechBox" to="." method="_on_vech_box_item_selected"]
+[connection signal="pressed" from="Level select/Up" to="." method="_on_up_pressed"]
+[connection signal="pressed" from="Level select/Back_select" to="." method="_on_back_select_pressed"]
+[connection signal="pressed" from="Level select/Down" to="." method="_on_down_pressed"]
+[connection signal="pressed" from="Level select/Sart race" to="." method="_on_sart_race_pressed"]
+[connection signal="value_changed" from="Settings/Audio" to="." method="_on_audio_value_changed"]
+[connection signal="item_selected" from="Settings/Window_type" to="." method="_on_window_type_item_selected"]
+[connection signal="item_selected" from="Settings/Resolution" to="." method="_on_resolution_item_selected"]
+[connection signal="value_changed" from="Settings/Fov" to="." method="_on_fov_value_changed"]
+[connection signal="pressed" from="Settings/Reset_setting" to="." method="_on_reset_setting_pressed"]
+[connection signal="pressed" from="Settings/options_back" to="." method="_on_options_back_pressed"]
+[connection signal="item_selected" from="Leaderboard/TrackOption" to="." method="_on_track_option_item_selected"]
+[connection signal="item_selected" from="Leaderboard/PlayerOption" to="." method="_on_player_option_item_selected"]
+[connection signal="item_selected" from="Leaderboard/TimeOption" to="." method="_on_time_option_item_selected"]
+[connection signal="pressed" from="Leaderboard/ExitScore" to="." method="_on_exit_score_pressed"]
+[connection signal="pressed" from="Pause/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Pause/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Pause/Quit to menu" to="." method="_on_quit_to_menu_pressed"]
+[connection signal="pressed" from="Mutliplayer/VBoxContainer/Host" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="Mutliplayer/VBoxContainer/Join" to="." method="_on_join_pressed"]
+[connection signal="pressed" from="Mutliplayer/VBoxContainer/ExitMultiplayer" to="." method="_on_exit_multiplayer_pressed"]

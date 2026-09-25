@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://oy5bl87d653c"]
+
+[ext_resource type="Script" uid="uid://cm4oflm0bh1b2" path="res://Scripts/Ray.gd" id="1_b3mt0"]
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+
+[node name="Ray" type="RayCast3D" parent="."]
+script = ExtResource("1_b3mt0")
